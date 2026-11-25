@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "calendar-agent"
+version = "0.1.0"
+description = "A from-scratch tool-calling AI agent for coordinating calendar events."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.7",
+    "openai>=1.40",
+    "google-api-python-client>=2.120",
+    "google-auth-oauthlib>=1.2",
+    "google-auth-httplib2>=0.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+calendar-agent = "calendar_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "eval: live LLM evaluation scenarios (run with RUN_LIVE_EVALS=1 and OPENAI_API_KEY)",
+]
