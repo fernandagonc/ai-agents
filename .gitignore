@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+.pytest_cache/
+
+# Secrets & local OAuth tokens (never commit!)
+.env
+credentials.json
+token.json
